@@ -14,6 +14,7 @@ export type InvoiceItem = {
 };
 
 export type InvoiceFormValues = {
+  clientPhone: string | number | readonly string[];
   clientName: string;
   clientEmail: string;
   currency: string;
@@ -33,15 +34,16 @@ type Props = {
 };
 
 const DEFAULT_VALUES: InvoiceFormValues = {
-  clientName: "",
-  clientEmail: "",
-  currency: "TSH",
-  issueDate: new Date().toISOString().slice(0, 10),
-  dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
-  items: [{ description: "", quantity: 1, unitPrice: 0 }],
-  taxRate: 0,
-  discount: 0,
-  notes: "",
+    clientName: "",
+    clientEmail: "",
+    currency: "TSH",
+    issueDate: new Date().toISOString().slice(0, 10),
+    dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
+    items: [{ description: "", quantity: 1, unitPrice: 0 }],
+    taxRate: 0,
+    discount: 0,
+    notes: "",
+    clientPhone: ""
 };
 
 export function InvoiceFormModal({ open, onOpenChange, onSubmit, defaultValues }: Props) {
