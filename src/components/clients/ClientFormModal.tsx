@@ -76,11 +76,11 @@ export function ClientFormModal({ open, onOpenChange, onSubmit, defaultValues }:
               <Label htmlFor="phone">Phone</Label>
               <Input id="phone" placeholder="+255 700 000 000" value={form.phone} onChange={(e) => update("phone", e.target.value)} />
             </div>
-            <div>
+            {/* <div>
               <Label htmlFor="company">Company</Label>
               <Input id="company" placeholder="Acme Corp" value={form.company} onChange={(e) => update("company", e.target.value)} />
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               <Label htmlFor="status">Status</Label>
               <Select value={form.status} onValueChange={(v) => update("status", v as ClientFormValues["status"])}>
                 <SelectTrigger id="status">
@@ -91,15 +91,15 @@ export function ClientFormModal({ open, onOpenChange, onSubmit, defaultValues }:
                   <SelectItem value="inactive">Inactive</SelectItem>
                 </SelectContent>
               </Select>
-            </div>
+            </div> */}
             <div className="md:col-span-2">
               <Label htmlFor="address">Address</Label>
               <Textarea id="address" placeholder="Street, City, Country" value={form.address} onChange={(e) => update("address", e.target.value)} />
             </div>
-            <div className="md:col-span-2">
+            {/* <div className="md:col-span-2">
               <Label htmlFor="notes">Notes</Label>
               <Textarea id="notes" placeholder="Additional information" value={form.notes} onChange={(e) => update("notes", e.target.value)} />
-            </div>
+            </div> */}
           </div>
 
           <DialogFooter>
