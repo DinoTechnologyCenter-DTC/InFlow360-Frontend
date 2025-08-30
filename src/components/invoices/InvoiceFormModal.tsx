@@ -115,13 +115,13 @@ export function InvoiceFormModal({ open, onOpenChange, onSubmit, defaultValues }
               />
             </div>
             <div>
-              <Label htmlFor="clientEmail">Client Email</Label>
+              <Label htmlFor="clientPhone">Phone Number</Label>
               <Input
-                id="clientEmail"
-                type="email"
-                placeholder="billing@acme.com"
-                value={form.clientEmail}
-                onChange={(e) => updateField("clientEmail", e.target.value)}
+                id="clientPhone"
+                type="tel"
+                placeholder="+255 123 456 789"
+                value={form.clientPhone}
+                onChange={(e) => updateField("clientPhone", e.target.value)}
               />
             </div>
             <div>
