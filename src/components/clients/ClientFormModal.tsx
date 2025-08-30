@@ -62,8 +62,8 @@ export function ClientFormModal({ open, onOpenChange, onSubmit, defaultValues }:
           <DialogDescription>Add a new client to your account.</DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div className="">
             <div>
               <Label htmlFor="name">Full Name</Label>
               <Input id="name" placeholder="Jane Doe" value={form.name} onChange={(e) => update("name", e.target.value)} />
@@ -92,7 +92,7 @@ export function ClientFormModal({ open, onOpenChange, onSubmit, defaultValues }:
                 </SelectContent>
               </Select>
             </div> */}
-            <div className="md:col-span-2">
+            <div className="">
               <Label htmlFor="address">Address</Label>
               <Textarea id="address" placeholder="Street, City, Country" value={form.address} onChange={(e) => update("address", e.target.value)} />
             </div>
