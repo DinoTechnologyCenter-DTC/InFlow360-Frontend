@@ -68,7 +68,7 @@ export default function Dashboard() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold ">
               Dashboard
             </h1>
             <p className="text-muted-foreground">
@@ -89,7 +89,7 @@ export default function Dashboard() {
               <DollarSign className="h-4 w-4 text-accent-green" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-accent-green">$112,000</div>
+              <div className="text-2xl font-bold text-accent-green">TSH 112,000</div>
               <p className="text-xs text-muted-foreground">
                 <TrendingUp className="inline h-3 w-3 mr-1" />
                 +12% from last month
@@ -131,7 +131,7 @@ export default function Dashboard() {
               <AlertCircle className="h-4 w-4 text-destructive" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-destructive">$8,400</div>
+              <div className="text-2xl font-bold text-destructive">TSH 8,400</div>
               <p className="text-xs text-muted-foreground">
                 3 overdue invoices
               </p>
@@ -233,7 +233,7 @@ export default function Dashboard() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="text-right">
-                      <p className="font-medium">${invoice.amount.toLocaleString()}</p>
+                      <p className="font-medium">TSH {invoice.amount.toLocaleString()}</p>
                       <p className="text-sm text-muted-foreground">{invoice.date}</p>
                     </div>
                     <Badge 

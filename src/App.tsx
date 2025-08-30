@@ -12,6 +12,8 @@ import Invoices from "./pages/Invoices";
 import PaymentConfirmation from "./pages/PaymentConfirmation";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import Payments from "./pages/Payments";
+import Clients from "./pages/Clients";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/invoices" element={<Invoices />} />
           <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/payments" element={<Payments />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -31,6 +31,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { InvoiceFormModal, type InvoiceFormValues } from "@/components/invoices/InvoiceFormModal";
+
+
 const invoicesData = [
   { 
     id: "INV-001", 
@@ -83,6 +86,16 @@ export default function Invoices() {
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
 
+  const [invoiceModalOpen, setInvoiceModalOpen] = useState(false);
+
+  const handleCreateInvoice = async (data: InvoiceFormValues) => {
+    // TODO: Replace with API call to persist invoice
+    // Example:
+    // await api.invoices.create(data);
+    console.log("New invoice created:", data);
+  };
+
+
   const filteredInvoices = invoicesData.filter(invoice => {
     const matchesSearch = invoice.client.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          invoice.id.toLowerCase().includes(searchTerm.toLowerCase());
@@ -122,14 +135,14 @@ export default function Invoices() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold ">
               Invoices
             </h1>
             <p className="text-muted-foreground">
               Manage and track all your invoices
             </p>
           </div>
-          <Button className="bg-gradient-primary hover:shadow-glow transition-smooth hover-lift">
+          <Button className="bg-gradient-primary hover:shadow-glow transition-smooth hover-lift" onClick={() => setInvoiceModalOpen(true)}>
             <Plus className="h-4 w-4 mr-2" />
             New Invoice
           </Button>
@@ -208,7 +221,7 @@ export default function Invoices() {
                   </div>
                   
                   <div className="text-right">
-                    <p className="font-bold text-lg">${invoice.amount.toLocaleString()}</p>
+                    <p className="font-bold text-lg">TSH {invoice.amount.toLocaleString()}</p>
                     <Badge className={getStatusColor(invoice.status)}>
                       {getStatusIcon(invoice.status)}
                       <span className="ml-1 capitalize">{invoice.status}</span>
@@ -248,7 +261,7 @@ export default function Invoices() {
             <CardContent className="pt-6">
               <div className="text-center">
                 <p className="text-2xl font-bold text-accent-green">
-                  ${invoicesData.filter(i => i.status === 'paid').reduce((sum, i) => sum + i.amount, 0).toLocaleString()}
+                  TSH {invoicesData.filter(i => i.status === 'paid').reduce((sum, i) => sum + i.amount, 0).toLocaleString()}
                 </p>
                 <p className="text-sm text-muted-foreground">Total Paid</p>
               </div>
@@ -259,7 +272,7 @@ export default function Invoices() {
             <CardContent className="pt-6">
               <div className="text-center">
                 <p className="text-2xl font-bold text-warning">
-                  ${invoicesData.filter(i => i.status === 'pending').reduce((sum, i) => sum + i.amount, 0).toLocaleString()}
+                  TSH {invoicesData.filter(i => i.status === 'pending').reduce((sum, i) => sum + i.amount, 0).toLocaleString()}
                 </p>
                 <p className="text-sm text-muted-foreground">Pending</p>
               </div>
@@ -270,7 +283,7 @@ export default function Invoices() {
             <CardContent className="pt-6">
               <div className="text-center">
                 <p className="text-2xl font-bold text-destructive">
-                  ${invoicesData.filter(i => i.status === 'overdue').reduce((sum, i) => sum + i.amount, 0).toLocaleString()}
+                  TSH {invoicesData.filter(i => i.status === 'overdue').reduce((sum, i) => sum + i.amount, 0).toLocaleString()}
                 </p>
                 <p className="text-sm text-muted-foreground">Overdue</p>
               </div>
@@ -278,6 +291,12 @@ export default function Invoices() {
           </Card>
         </div>
       </div>
+       {/* Invoice Form Modal */}
+      <InvoiceFormModal
+        open={invoiceModalOpen}
+        onOpenChange={setInvoiceModalOpen}
+        onSubmit={handleCreateInvoice}
+      />
     </AppLayout>
   );
 }

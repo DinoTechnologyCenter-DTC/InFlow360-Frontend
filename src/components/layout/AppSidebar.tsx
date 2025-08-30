@@ -62,7 +62,7 @@ export function AppSidebar() {
           </div>
           {!collapsed && (
             <div>
-              <h2 className="font-bold text-lg bg-gradient-primary bg-clip-text text-white">
+              <h2 className="font-bold text-lg ">
                 Inflow360
               </h2>
               <p className="text-xs text-muted-foreground">Invoice Manager</p>
