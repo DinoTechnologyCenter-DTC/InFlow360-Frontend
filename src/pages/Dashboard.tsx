@@ -26,6 +26,9 @@ import {
   LineChart,
   Line
 } from "recharts";
+import { useState } from "react";
+import { InvoiceFormModal, type InvoiceFormValues } from "@/components/invoices/InvoiceFormModal";
+
 
 const revenueData = [
   { month: "Jan", revenue: 12000, invoices: 24 },
@@ -49,7 +52,16 @@ const recentInvoices = [
   { id: "INV-004", client: "Creative Agency", amount: 1500, status: "paid", date: "2024-01-12" },
 ];
 
+
 export default function Dashboard() {
+    const [invoiceModalOpen, setInvoiceModalOpen] = useState(false);
+
+  const handleCreateInvoice = async (data: InvoiceFormValues) => {
+    // TODO: Replace with API call to persist invoice
+    // Example:
+    // await api.invoices.create(data);
+    console.log("New invoice created:", data);
+  };
   return (
     <AppLayout>
       <div className="p-6 space-y-6 animate-slide-in-up">
@@ -63,7 +75,7 @@ export default function Dashboard() {
               Welcome back! Here's what's happening with your business.
             </p>
           </div>
-          <Button className="bg-gradient-primary hover:shadow-glow transition-smooth hover-lift">
+          <Button className="bg-gradient-primary hover:shadow-glow transition-smooth hover-lift" onClick={() => setInvoiceModalOpen(true)}>
             <Plus className="h-4 w-4 mr-2" />
             Create Invoice
           </Button>
@@ -246,6 +258,12 @@ export default function Dashboard() {
           </CardContent>
         </Card>
       </div>
+      {/* Invoice Form Modal */}
+      <InvoiceFormModal
+        open={invoiceModalOpen}
+        onOpenChange={setInvoiceModalOpen}
+        onSubmit={handleCreateInvoice}
+      />
     </AppLayout>
   );
 }

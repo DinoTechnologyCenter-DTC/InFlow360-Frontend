@@ -14,8 +14,8 @@ export default function Index() {
           </div>
           
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              PayFlow
+            <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-primary">
+              InFlow360
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground">
               Payment & Invoices Made Simple

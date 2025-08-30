@@ -41,7 +41,7 @@ export default function Register() {
       setIsLoading(false);
       toast({
         title: "Account Created! 🎉",
-        description: "Welcome to PayFlow! Let's get started.",
+        description: "Welcome to InFlow360! Let's get started.",
       });
       navigate("/dashboard");
     }, 1500);
@@ -59,7 +59,7 @@ export default function Register() {
               Create Account
             </CardTitle>
             <CardDescription>
-              Join PayFlow and start managing your invoices
+              Join InFlow360 and start managing your invoices
             </CardDescription>
           </div>
         </CardHeader>
