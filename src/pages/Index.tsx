@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Navbar } from "@/components/layout/Navbar";
 import { Wallet, ArrowRight, CheckCircle, Users, DollarSign, FileText } from "lucide-react";
 
 export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-subtle">
+      <Navbar />
       {/* Hero Section */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 pt-32 pb-16">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
           <div className="mx-auto w-20 h-20 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-large animate-float">
             <Wallet className="h-10 w-10 text-white" />
